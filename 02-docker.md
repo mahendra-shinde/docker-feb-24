@@ -120,3 +120,47 @@ No. | Command | Description | Example Usage
     docker rm c1
     ```
 
+## Env Demo : Passing Environment Variables to Container
+
+> Syntax
+
+    docker run -e ENV1=VALUE1 -e ENV2=VALUE2 ... -e ENV1000=VALUE1000 IMAGENAME
+
+1. Try creating MySQL Database instance without environment variables.
+
+    ```bash
+    docker run -d -p 3306 --name db1 mysql:8.0
+    docker logs db1
+    ```
+
+    > Container failed to start, due to missing Environment variables
+
+1.  Delete the failed container and create a new one with Environment variables
+
+    ```bash
+    docker rm db1
+
+    docker run -d -p 3306 --name db1 -e MYSQL_ROOT_PASSWORD=Pass1234 -e MYSQL_USER=mahendra -e MYSQL_PASSWORD=pass1234 -e MYSQL_DATABASE=sample  mysql:8.0
+
+    ```
+
+1.  Test the database using `docker exec`
+
+    ```bash
+    docker exec -it db1 bash
+    mysql -umahendra -ppass1234 
+    use sample
+    show tables;
+    ## Empty set
+    create table emp ( ename varchar(20), eid int primary key );
+    show tables;
+    exit
+    exit
+    ```
+
+1.  Delete the container
+
+    ```bash
+    docker stop db1
+    docker rm db1
+    ```
