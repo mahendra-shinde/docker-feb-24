@@ -36,3 +36,37 @@ No. | Command | Description | Example Usage
 3  | images | Print list of all `downloaded` images | docker images `or` docker image ls
 4 | pull | Download image from registry | docker pull mahendrshinde/cowsay
 5 | run | Launch a new instance from an image | docker run mahendrshinde/cowsay
+6 | rmi | Remove a local image | docker rmi openjdk:11-jre-buster `or` docker image rm openjdk:11-jre-buster
+
+
+## Demo 1 : Images and Layers
+
+1.  Make sure there are no local images of OpenJDK
+
+    ```bash
+    docker rmi openjdk:11-jre-buster
+    docker rmi openjdk:11-jdk-buster
+    ```
+1.  Try Downloading the JRE image
+
+    ```
+    docker pull openjdk:11-jre-buster
+    ```
+
+1.  Expected : Docker need to download SIX layers
+
+1.  Try downloading the JDK image
+
+    ```bash
+    docker pull openjdk:11-jdk-buster
+    ```
+
+1.  Expected : Three layers are SKIPPED (Shared Layers with JRE)
+
+1.  Delete all the images
+
+    ```bash
+    docker rmi openjdk:11-jre-buster
+    docker rmi openjdk:11-jdk-buster
+    ```
+
