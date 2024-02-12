@@ -70,3 +70,36 @@ No. | Command | Description | Example Usage
     docker rmi openjdk:11-jdk-buster
     ```
 
+
+## Demo 2 : Launch a new instance from image
+
+1. Method 1 : Basic RUN Command
+
+    ```bash
+    # Syntax : docker run IMAGENAME
+    docker run mahendrshinde/cowsay
+    ```
+
+2. Method 2 : Execution mode : default / terminal
+
+    ```bash
+    # Syntax : docker run -t IMAGENAME
+    docker run -t mahendrshinde/cowsay
+    ```
+
+    > Both with and without "-t" your output should be same.
+
+3.  Method 3 : Execution mode : Detached / Background
+
+    ```bash
+    # Syntax : docker run -d IMAGENAME
+    docker run -d mahendrshinde/cowsay
+    ```
+
+4.  Method 4 : Execution mode "Detached" with Logical name
+
+    ```bash
+    # Syntax : docker run --name CNAME -d IMAGENAME
+    docker run --name c1 -d mahendrshinde/cowsay
+    docker logs c1
+    ```
