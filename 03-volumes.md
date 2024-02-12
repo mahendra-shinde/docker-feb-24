@@ -52,3 +52,13 @@
 
 1.  Host-Path containers (Ad-Hoc)
 
+    > Syntax:
+        
+        docker run -v HOST-PATH:GUEST-PATH <Image>
+
+    > Example:
+        
+        docker run --name c2 -v D:\mysite:/usr/share/nginx/html -p 30003:80 -d nginx:alpine
+
+    > Make sure folder d:\mysite exists and has one HTML file `index.html`
+            
