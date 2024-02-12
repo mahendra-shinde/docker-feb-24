@@ -41,14 +41,13 @@
 
     1.  Delete the container and recreate it
 
-        ```
+        ```bash
         docker stop c1
         docker rm c1
         docker run --name c2 -v vol1:/data -d nginx:alpine
         docker exec -it c2 sh
         ls /data
         exit
-        
         ```
 
 1.  Host-Path containers (Ad-Hoc)
