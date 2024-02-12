@@ -103,3 +103,13 @@ No. | Command | Description | Example Usage
     docker run --name c1 -d mahendrshinde/cowsay
     docker logs c1
     ```
+
+5. Method 5 : Set port-forwarding to access containerized application from local port
+
+    ```bash
+    # Syntax : docker run -p HostPort:ContainerPort -d --name CNAME IMAGENAME
+    docker run --name c1 -d -p 5000:8080 mahendrshinde/image-resizer
+    ```
+
+6. Using web-browser visit page http://localhost:5000
+
