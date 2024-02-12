@@ -144,6 +144,20 @@ No. | Command | Description | Example Usage
 
     ```
 
+    Alternative Method to pass Multiple Environment Variables through TEXT file
+
+    ```bash
+    docker run --name c2 -p 3306 -d --env-file db.txt mysql:8.0
+    ```
+    Where, db.txt should contain all variables like this:
+
+    ```ini
+    MYSQL_USER=mahendra
+    MYSQL_DATABASE=sample
+    MYSQL_PASSWORD=pass1234
+    MYSQL_ROOT_PASSWORD=pass1234
+    ```
+
 1.  Test the database using `docker exec`
 
     ```bash
