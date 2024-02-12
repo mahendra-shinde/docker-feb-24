@@ -113,3 +113,10 @@ No. | Command | Description | Example Usage
 
 6. Using web-browser visit page http://localhost:5000
 
+7.  Clean-up: stop and delete the recently created container
+
+    ```bash
+    docker stop c1
+    docker rm c1
+    ```
+
