@@ -50,4 +50,23 @@ docker run --name m4 -d --net host nginx:alpine
 docker rm m3 m4 -f
 ```
 
+## Demo 4 : Test User defined bridge network
 
+```bash
+docker network create net1 --subnet 10.0.10.0/24
+docker network create net2 --subnet 10.0.20.0/24
+# Deploy TWO containers in net1
+docker run --name m1 -d --net net1 nginx:alpine
+docker run --name m2 -d --net net1 nginx:alpine
+# Test the connectivity between two containers in SAME network
+docker exec -t  m1 ping m2 -c 5
+docker exec -t  m2 ping m1 -c 5
+# Create ONE container in second network
+docker run --name m3 -d --net net2 nginx:alpine
+# Test the connectivity between TWO network
+docker exec -t  m1 ping m3 -t 5
+## EXPECTED FAILURE !!!
+docker stop m1 m2 m3
+docker rm m1 m2 m3
+docker network rm net1 net2
+```
