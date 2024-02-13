@@ -1,0 +1,16 @@
+version: '3.5'
+
+
+## docker network create app_name 
+networks:
+  app_net:
+
+
+## docker run --name app -d -p 8080:80 --net app_net mahendrshinde/myweb:1
+services:
+  app:  ## User defined service-name
+    image: mahendrshinde/myweb:1
+    ports:
+      - "8080:80"
+    networks:
+      - app_net
