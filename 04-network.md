@@ -4,11 +4,11 @@ Two or more containers could be member of single shared container network.
 
 Linux Container hosts supports THREE container network drivers
 
-Driver Name | Network Name | Allow user-defined network 
------------|---------------|---------------------------
-Null  |   None   | Does not allow
-Host  |   host   | Does not allow
-Bridge |  bridge | Does allow !
+Driver Name | Network Name | Allow user-defined network | Usage
+-----------|---------------|---------------------------|---
+Null  |   None   | Does not allow | Disable networking, allows air-tight containers
+Host  |   host   | Does not allow | Containers directly exposed to HOST network
+Bridge |  bridge | Does allow ! | Used for user-defined network and network isolation
 
 
 
