@@ -15,13 +15,13 @@ Bridge |  bridge | Does allow !
 ## Demo 1 : Test `NONE` network
 
 ```bash
-docker rm m1
+docker rm m1 -f
 docker run --name m1 -d --net none nginx:alpine
 docker exec -it m1 ping google.com
 ## Expect PING to fail !
 ## Press CTRL+C to stop execution
 docker exec -it m1 hostname
-docker rm m1
+docker rm m1 -f
 ```
 
 
@@ -29,14 +29,14 @@ docker rm m1
 ## Demo 2 : Test `default bridge` network
 
 ```bash
-docker rm m2
+docker rm m2 -f
 docker run --name m2 -d  nginx:alpine
 docker exec -it m1 ping google.com
 ## Expect PING to work !
 ## Press CTRL+C to stop execution
 docker exec -it m1 hostname
 ## Expect an IP address
-docker rm m2
+docker rm m2 -f
 ```
 
 
@@ -47,7 +47,7 @@ docker rm m3
 docker run --name m3 -d --net host nginx:alpine
 docker run --name m4 -d --net host nginx:alpine
 ## Expect m4 to fail 
-docker rm m3 m4
+docker rm m3 m4 -f
 ```
 
 
