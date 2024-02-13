@@ -40,7 +40,7 @@ docker rm m2
 ```
 
 
-## Demo 1 : Test `Host` network
+## Demo 3 : Test `Host` network
 
 ```bash
 docker rm m3
