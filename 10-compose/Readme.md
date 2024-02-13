@@ -33,3 +33,5 @@
     docker-compose up -d
     docker-compose ps
     ```
+
+> For more compose demos visit https://github.com/mahendra-shinde/docker-compose-demos 
